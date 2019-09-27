@@ -1,13 +1,17 @@
 package com.practica1;
 
-/**
- * Hello world!
- *
- */
+import com.practica1.interfaces.*;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-    }
+        IMastermind mastermind = new Mastermind();
+        mastermind.inicio();
+        while(mastermind.continuarPartida())
+        {
+            Combinacion combinacion = mastermind.solicitarCombinacion();
+            mastermind.chequearIntento(combinacion);
+        }
+    }   
 }
