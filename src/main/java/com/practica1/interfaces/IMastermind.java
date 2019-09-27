@@ -6,6 +6,6 @@ public interface IMastermind
 {
     void inicio();
     Combinacion solicitarCombinacion();
-    void chequearIntento(Combinacion combinacion);
-    boolean continuarPartida();
+    boolean esFinalDePartida();
+    boolean continuarJugando();
 }
