@@ -1,12 +1,17 @@
 package com.practica1;
 
 import java.util.Collections;
-import java.util.List;
 
-public class SecretCombination extends Combination
-{
+public class SecretCombination extends Combination {
     public SecretCombination() {
-        //TODO Generar combinacion secreta
+        int position = 0;
+        do {
+            Color color = Color.randomColor();
+            if (!super.ContainsColor(color)) {
+                super.setColor(color, position);
+                position++;
+            }
+        } while (!super.isComplete());
     }
 
     public void calculateResult(ProposedCombination proposedCombination) {
@@ -14,18 +19,17 @@ public class SecretCombination extends Combination
     }
 
     public void write() {
-        System.out.println(String.join("", Collections.nCopies(this.GetColors().size(), "*")));
+        System.out.println(String.join("", Collections.nCopies(super.getColors().length, "*")));
     }
 
     private Result GetResult(ProposedCombination proposedCombination) {
-        List<Color> colorList = this.GetColors();
         int deads = 0;
         int damaged = 0;
-        for (int indexColor = 0; indexColor < colorList.size(); indexColor++) {
-            Color color = colorList.get(indexColor);
-            if (this.getColor(indexColor).equals(color))
+        for (int indexColor = 0; indexColor < super.getColors().length; indexColor++) {
+            Color color = super.getColors()[indexColor];
+            if (proposedCombination.getColor(indexColor) == color)
                 deads++;
-            else if (this.Contains(color))
+            else if (proposedCombination.ContainsColor(color))
                 damaged++;
         }
         return new Result(deads, damaged);

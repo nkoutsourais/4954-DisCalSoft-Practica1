@@ -20,6 +20,6 @@ public class SecretPlayer {
     }
 
     public void write() {
-        //TODO EScribir
+        secretCombination.write();
     }
 }

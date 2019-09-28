@@ -1,11 +1,10 @@
 package com.practica1;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Stream;
 
 public class Combination {
     private static final int MAX_COLORS = 4;
+
     private Color[] colors = new Color[MAX_COLORS];
 
     public void setColor(Color color, int position) {
@@ -18,17 +17,34 @@ public class Combination {
         return this.colors[position];
     }
 
-    public boolean Contains(Color color) {
+    private void positionControl(int position) throws IllegalArgumentException {
+        if (position >= MAX_COLORS || position < 0)
+            throw new IllegalArgumentException("The position is wrong");
+    }
+
+    public boolean isComplete() {
+        for (Color color : colors) {
+            if (color == null)
+                return false;
+        }
+        return true;
+    }
+
+    public boolean ContainsColor(Color color) {
         return Stream.of(this.colors).anyMatch(color::equals);
     }
 
-    public List<Color> GetColors()
-    {
-        return Arrays.asList(colors);
+    public Color[] getColors() {
+        return colors;
     }
 
-    private void positionControl(int position) {
-        if (position >= MAX_COLORS || position < 0)
-            throw new IllegalArgumentException("The position is wrong");
+    public void setColors(Color[] colors) {
+        if (colors == null || colors.length != MAX_COLORS)
+            throw new IllegalArgumentException("Wrong proposed combination length");
+        this.colors = colors;
+    }
+
+    public void writeColors() {
+        Stream.of(colors).forEach(c -> System.out.print(c.getSymbol()));
     }
 }

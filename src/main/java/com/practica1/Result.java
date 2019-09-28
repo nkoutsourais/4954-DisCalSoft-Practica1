@@ -1,7 +1,6 @@
 package com.practica1;
 
-public class Result
-{
+public class Result {
     private static final int DEADS_WIN = 4;
 
     private int deads = 0;
@@ -13,11 +12,10 @@ public class Result
     }
 
     public void write() {
-        //TODO Escribir resultado
+        System.out.println(String.format("%d blacks and %d whites", this.deads, this.damaged));
     }
 
-    public boolean isWinner()
-    {
+    public boolean isWinner() {
         return damaged == 0 && deads == DEADS_WIN;
     }
 }
