@@ -37,6 +37,13 @@ public class ProposedPlayer {
         return this.attempts.size() >= MAX_ATTEMPTS;
     }
 
+    public void writeResultPlay() {
+        if(this.isWinner())
+            System.out.println("You've won!!! ;-)");
+        else if(this.isLooser())
+            System.out.println("You've lost!!! :-(");
+    }
+
     public boolean continuePlay(Scanner scanner) {
         attempts.clear();
         System.out.print("Do you want to continue? (s/n): ");

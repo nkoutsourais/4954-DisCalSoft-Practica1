@@ -24,6 +24,7 @@ public class Mastermind {
                 secretPlayer.answer();
                 proposedPlayer.writeProposedCombinations();
             } while (!proposedPlayer.isWinner() && !proposedPlayer.isLooser());
+            proposedPlayer.writeResultPlay();
         } while (proposedPlayer.continuePlay(scanner));
         scanner.close();
     }
