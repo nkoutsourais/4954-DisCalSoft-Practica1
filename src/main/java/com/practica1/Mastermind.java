@@ -16,6 +16,7 @@ public class Mastermind {
         do {
             System.out.println("----- MASTERMIND -----");
             secretPlayer.prepare();
+            secretPlayer.write();
             do {
                 proposedPlayer.propose(scanner);
                 proposedPlayer.writeAttempts();
