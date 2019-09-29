@@ -33,6 +33,7 @@ class ProposedPlayer{
   isWinner():boolean
   isLooser():boolean
   continuePlay(Scanner):boolean
+  writeResultPlay():void
   }
 
 abstract class Combination{
@@ -79,5 +80,8 @@ Combination <|-down- ProposedCombination
 
 ProposedCombination o--> Result
 @enduml
+
+
+
 ```
 
