@@ -84,4 +84,46 @@ ProposedCombination o--> Result
 
 
 ```
+ ---------------
+ 
+```PLantUML XO
+@startuml
 
+class XO {
+  players []:Player
+  activePlayer:int
+  board:Board
+  XO()
+  play()
+}
+
+class Board{
+  init[][]
+  checkIsFull()
+  checkIsWin()
+  insert(x:int,y:int)
+  write()
+}
+
+class Player{
+  Symbol
+  Player(Symbol,Board)
+  propose()
+}
+
+enum Symbol{
+  X
+  O
+}
+
+
+XO *--> Board
+XO *--> Player
+
+Player *--> Symbol
+Player --> Board
+
+@enduml
+
+
+```
