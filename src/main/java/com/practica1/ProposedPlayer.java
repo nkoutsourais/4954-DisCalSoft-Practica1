@@ -5,28 +5,28 @@ import java.util.*;
 public class ProposedPlayer {
     private static final int MAX_ATTEMPTS = 10;
 
-    private List<ProposedCombination> proposedCombinationList;
+    private List<ProposedCombination> attempts;
 
     public ProposedPlayer() {
-        proposedCombinationList = new ArrayList<ProposedCombination>();
+        attempts = new ArrayList<ProposedCombination>();
     }
 
     public void propose(Scanner scanner) {
         ProposedCombination proposedCombination = new ProposedCombination();
         proposedCombination.read(scanner);
-        this.proposedCombinationList.add(proposedCombination);
+        this.attempts.add(proposedCombination);
     }
 
     public ProposedCombination getLastProposedCombination() {
-        return proposedCombinationList.get(proposedCombinationList.size() - 1);
+        return attempts.get(attempts.size() - 1);
     }
 
     public void writeAttempts() {
-        System.out.println(proposedCombinationList.size() + " attempt(s):");
+        System.out.println(attempts.size() + " attempt(s):");
     }
 
     public void writeProposedCombinations() {
-        proposedCombinationList.stream().forEach(c -> c.write());
+        attempts.stream().forEach(c -> c.write());
     }
 
     public boolean isWinner() {
@@ -34,11 +34,11 @@ public class ProposedPlayer {
     }
 
     public boolean isLooser() {
-        return this.proposedCombinationList.size() >= MAX_ATTEMPTS;
+        return this.attempts.size() >= MAX_ATTEMPTS;
     }
 
     public boolean continuePlay(Scanner scanner) {
-        proposedCombinationList.clear();
+        attempts.clear();
         System.out.print("Do you want to continue? (s/n): ");
         String response = scanner.nextLine();
         return "s".equalsIgnoreCase(response);
