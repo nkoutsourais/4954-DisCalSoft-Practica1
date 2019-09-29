@@ -1,10 +1,9 @@
-# Practica1
-
-Practica de Diseño y Calidad del Software 
-Fecha de entrega: 30/09/2019
-Integrantes de la Pareja:
-  -Neo Koutsourais
-  -Fran Arboleya
+## Diseño y calidad del Software 
+### Practica 1
+* Fecha de entrega: 30/09/2019
+* Integrantes de la Pareja:
+  * Neo Koutsourais
+  * Fran Arboleya
    
 ## Diagrama MasterMind
 
