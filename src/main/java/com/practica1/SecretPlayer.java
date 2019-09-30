@@ -19,7 +19,7 @@ public class SecretPlayer {
         this.secretCombination.calculateResult(proposedCombination);
     }
 
-    public void write() {
+    public void writeSecretCombination() {
         secretCombination.write();
     }
 }

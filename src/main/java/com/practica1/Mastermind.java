@@ -5,27 +5,40 @@ import java.util.Scanner;
 public class Mastermind {
     private ProposedPlayer proposedPlayer;
     private SecretPlayer secretPlayer;
+    private Scanner scanner;
 
     public Mastermind() {
         proposedPlayer = new ProposedPlayer();
         secretPlayer = new SecretPlayer(proposedPlayer);
+        scanner = new Scanner(System.in);
     }
 
     public void play() {
-        Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("----- MASTERMIND -----");
+            this.writeIntro();
             secretPlayer.prepare();
-            secretPlayer.write();
+            secretPlayer.writeSecretCombination();
             do {
                 proposedPlayer.propose(scanner);
-                proposedPlayer.writeAttempts();
-                secretPlayer.write();
                 secretPlayer.answer();
+                proposedPlayer.writeAttempts();
+                secretPlayer.writeSecretCombination();
                 proposedPlayer.writeProposedCombinations();
-            } while (!proposedPlayer.isWinner() && !proposedPlayer.isLooser());
+            } while (!this.isGameOver());
             proposedPlayer.writeResultPlay();
         } while (proposedPlayer.continuePlay(scanner));
+    }
+
+    private boolean isGameOver() {
+        return proposedPlayer.isWinner() || proposedPlayer.isLooser();
+    }
+
+    private void writeIntro() {
+        System.out.println("----- MASTERMIND -----");
+    }
+
+    @Override
+    public void finalize() {
         scanner.close();
     }
 }
