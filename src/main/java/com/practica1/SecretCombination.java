@@ -15,14 +15,14 @@ public class SecretCombination extends Combination {
     }
 
     public void calculateResult(ProposedCombination proposedCombination) {
-        proposedCombination.setResult(GetResult(proposedCombination));
+        proposedCombination.setResult(getResult(proposedCombination));
     }
 
     public void write() {
         System.out.println(String.join("", Collections.nCopies(super.getColors().length, "*")));
     }
 
-    private Result GetResult(ProposedCombination proposedCombination) {
+    private Result getResult(ProposedCombination proposedCombination) {
         int deads = 0;
         int damaged = 0;
         for (int indexColor = 0; indexColor < super.getColors().length; indexColor++) {
