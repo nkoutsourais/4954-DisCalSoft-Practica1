@@ -8,7 +8,7 @@
 ## Diagrama MasterMind
 
 <p align="center">
-  <img alt="" src="https://plantuml-server.kkeisuke.app/svg/ZLPTJzim57tlhx34IxfIUAyGefGA8HLQjPsOD4sLctYTXMD7jWjYZF--wuyajfF1Ng0vzzphSwvlRtEbD9RwMBB186TOANIFbIQofBnu6w0nggIeX2B5Yk5N8j44hIB0K1J99T4DOHCysd2EENSHzsc0HgY2S3O4x5dGmh2ekiKbMJuJ6S4lacfonxKK0Jn2Fod7ZFucBVXUwm-F1mV_Ow7nC1Fb7YfhAdXZ9C20EOhgPt6beILKabHOWhI94OOiXhbwCSucpW0WrbZdX9hHk8aFS7xUuCeqpT_H_VJRRhhTpkzNsmtefLpREDQQb9LM02seqXTrZU2SIw_K1Z9_Bu6w0z4Bc8EUJ53OWxQMflPmrR7QanIHg7gaHWHWUo4OmTp32m5fAPmBhYa_4jEMLdx8i8UkYJeoUrT1O_5UQObpZLo70q4zxPqj5yjrsDoPO49-_m6VJs1ej7tCxDzJ10QfgJC1yj0o3ZKZ2a4vYxhfz96PC5FEEapVeHDe1KYj6D71r1lSz09JhW8f9jusevMXikRin8BAF1gLjaqCCkiM4duiNHdJihXfyyrcUZlVpTVhvHfIeDUK7rBMoepj-c5tytMrk9jDj_EKgLxBlM0fwYmciQ4DsfdTs8YL6kIDsdE1uzCdFZcuYuXPTxLBRniR9KXS5g9q2kEgWU_y5ycVlCfEOT_sA044Boip3fY5veEiEdnXuvTf0QeUZemjvJN3_2c3nOJBpxqqytBzwiIgB3VF_Y7uogHjj6FLjUogXMlaytfzQptvievGpmP5v-TW01O2XakqU6xsEGQZMaYAtGB1B3yoNA-8h6Sz1LVYrqdulHkR9dsSxABTNTxPED8Ismnpe2IuQ3PRgAGPpBwb4rrfoasZgZ7W_aN7jFiuoKewqRXpDP8LUZEVtcnsZtSFmGOjm9aAdt693wHea94lbGN4qvWrxB-JVwW6YOFshGPz6OyluvUKD9Yy7mn2CkeZnCz8X9pmLp8g95eT8MVGWT3PsKVbKgOVeX2shjn2Yl2BF-D2lF1nZunUMf-8GG_el7aXLuGNy7xv5m00.svg">
+  <img alt="" src="https://plantuml-server.kkeisuke.app/svg/ZLPTJzim57tFhx34IxfIUAyGeYlLX5HeHPcOD4t8JRnYBR4ZsuKnnd_VzKUIQpUWlRJDkSVtddjyxVH26whClgwohAYerkIQQiDKpKNvcf49QPHif6Rbkg8lJ94fMKU0fMXMA6OwmWOzkd11XV0H_oiZOz90E1y1zYHvQLbSVw4rMpqn5S7FYXjs9OoI21wJdrpGYlzXFVZMwiVbeOF_QQ7hOIxhBMGsN8gk4OG1Snpbp-DC8qTe56ke0cbJAumuZ0hzR3kR-WO0SOqTL6WPNJTn0T_FAsoPuSKRkPvzUvZTtIskrtSRqCk5SN5g3AiRem5QSctEsXoepdbGwW9vs1UaRiVC4kPWO2Ke743xbcQkk3veTM1HHEBwdbiHW6sbh1WL0LvAM9R2XHI6YpspjlJoCSCLlMLwNxczGiRIhJQA5ePuXv6W0Nldg-Ng5fixbvLKtt_0xoCO6kCUS_TvJA11RlDCWJnoZ5tBY4AGpg4kOV78Yb_h43xW1N-Em0WGsbJCe9ctk7M2Sg6H41llhUX5wBohd3IWyu16gPs5Q6Lh81FxsgUnXhdJyr9lPGKKS9QBNK2zf2GsSa4tOHiNSQdHkd6_0S09owTXCN8ksgekc_TXyHlcFaqSqrUDjPbMM2IgqeRFNFmylLwIeHcJWPDCJa-X40mcXKroU67l5GhxOgJYrEs-edKfQoy2TmSZJgjYNz5sYFE10uHsAmmydes9RVFZnJvwUDkyVoRMzhwvlNcu_BfUNirdTmliCRJZ4lQPhJ35QDcTKQou7Tt1unFDSCfDexfhr7z5PVgR9Larx9WV-CylOPxomZvtmzNvaawaEr7XDFiKU1YA59aMZrGTlhoy_CJpoyNiSlDmVtM3hg4IJDNucTPqnyeE6OTKEI8UnwpHi0dl60OIi_wl0VaqcPp7R_eqcBnaCqmcGuJucKZCmQ-QA97iTM1ETW2HavEFqgNCCByOTbtvyndXPtydfNmMam4PWxGX4Ta0w7iBGYwOAE5FsZy0.svg">
 </p>
 
 ### PlantUML
@@ -53,7 +53,7 @@ abstract class Combination{
   - Color[]
   # setColor(Color, position:int)
   # getColor(position:int) : Color
-  - positionControl(position:int) : void
+  - checkPosition(position:int) : void
   # isComplete() : void
   # containsColor(Color) : boolean
   # getColors() : Color[]
@@ -62,29 +62,24 @@ abstract class Combination{
 }
 
 enum Color{
-    - {static} MESSAGE_ERROR : string
-    - {static} PATTERN_DUPLICATE : string
     - symbol : string
     - Color(symbol : string)
     + getSymbol() : string
     + {static} get(symbol:string) : Color
-    + {static} contains(symbol:string) : boolean
-    + {static} ramdomColor() : Color
-    - {static} checkSymbol(symbol:string) : void
+    - {static} getSymbolsColorExist() : string
     - {static} getOptionalColor(symbol:string) : Optional<Color>
-    - {static} isNullOrBlank(param:string) : boolean
-    + {static} getColorsBySymbols(colorSymbolsCombination:string) : Color[]
-    - {static} checkColorsCombination(colorSymbolsCombination:string) : void
 }
 
 class SecretCombination{
   + SecretCombination() // genera combinacion aleatoria
+  - ramdomColor() : Color
   + calculateResult(ProposedCombination) : void
   + write() : void
   - getResult(ProposedCombination) : Result
 }
 
 class ProposedCombination{
+  - {static} PATTERN_DUPLICATE : string
   - result : Result
   + read(Scanner) : void
   + contains(Color, position:int) : boolean
@@ -92,6 +87,8 @@ class ProposedCombination{
   + setResult(Result) : void
   + isWinner() : boolean
   + write() : void
+  - getColorsBySymbols(colorSymbolsCombination:string) : Color[]
+  - checkColorsCombination(colorsCombination:char) : void
 }
 
 class Result{
