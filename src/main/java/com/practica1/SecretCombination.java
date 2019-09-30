@@ -1,17 +1,23 @@
 package com.practica1;
 
 import java.util.Collections;
+import java.util.Random;
 
 public class SecretCombination extends Combination {
     public SecretCombination() {
         int position = 0;
         do {
-            Color color = Color.randomColor();
+            Color color = randomColor();
             if (!super.ContainsColor(color)) {
                 super.setColor(color, position);
                 position++;
             }
         } while (!super.isComplete());
+    }
+
+    private Color randomColor() {
+        Random ramdom = new Random();
+        return Color.values()[ramdom.nextInt(Color.values().length)];
     }
 
     public void calculateResult(ProposedCombination proposedCombination) {

@@ -8,16 +8,16 @@ public abstract class Combination {
     private Color[] colors = new Color[MAX_COLORS];
 
     protected void setColor(Color color, int position) {
-        positionControl(position);
+        checkPosition(position);
         this.colors[position] = color;
     }
 
     protected Color getColor(int position) {
-        positionControl(position);
+        checkPosition(position);
         return this.colors[position];
     }
 
-    private void positionControl(int position) throws IllegalArgumentException {
+    private void checkPosition(int position) throws IllegalArgumentException {
         if (position >= MAX_COLORS || position < 0)
             throw new IllegalArgumentException("The position is wrong");
     }
